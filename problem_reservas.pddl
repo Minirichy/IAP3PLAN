@@ -1,5 +1,5 @@
-(define (problem asignar-reservas)
-  (:domain reservas)
+(define (problem asignar-reservas-ext3)
+  (:domain reservas-ext3)
   (:objects
     D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19 D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D30 - dia
     H1 - habitacion
@@ -38,17 +38,23 @@
     (= (que-dia D30) 30)
 
     (= (num-personas-hab H1) 3)
-    (= (num-personas-res R1) 3)
+    (= (num-personas-res R1) 1)
     (= (num-personas-res R2) 3)
-    (= (num-personas-res R3) 3)
+    (= (num-personas-res R3) 1)
     (= (dia-inicial R1) 1) 
     (= (dia-final R1) 15) 
     (= (dia-inicial R2) 16) 
     (= (dia-final R2) 29) 
-    (= (dia-inicial R3) 30) 
+    (= (dia-inicial R3) 29) 
     (= (dia-final R3) 30) 
+
+    (= (reservas-no-asig) 0)
+    (= (plazas-no-asig) 0)
   )
   (:goal
-    (forall (?r - reserva) (reserva-asignada ?r))
+    (forall
+      (?r - reserva)   
+      (reserva-asignada ?r)
+    )
   )
 )
