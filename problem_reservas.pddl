@@ -45,7 +45,7 @@
     (= (dia-final R1) 15) 
     (= (dia-inicial R2) 16) 
     (= (dia-final R2) 29) 
-    (= (dia-inicial R3) 29) 
+    (= (dia-inicial R3) 30) 
     (= (dia-final R3) 30) 
 
     (= (reservas-no-asig) 0)
