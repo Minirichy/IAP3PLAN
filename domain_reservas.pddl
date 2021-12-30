@@ -1,5 +1,5 @@
 (define (domain reservas)
-  (:requirements :typing :fluents)
+  (:requirements :strips :typing :adl :equality :fluents)
   (:types
     dia
     reserva

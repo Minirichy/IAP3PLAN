@@ -38,9 +38,9 @@
     (= (que-dia D30) 30)
 
     (= (num-personas-hab H1) 3)
-    (= (num-personas-res R1) 3)
+    (= (num-personas-res R1) 1)
     (= (num-personas-res R2) 3)
-    (= (num-personas-res R3) 2)
+    (= (num-personas-res R3) 1)
     (= (dia-inicial R1) 1) 
     (= (dia-final R1) 15) 
     (= (dia-inicial R2) 16) 
@@ -48,35 +48,17 @@
     (= (dia-inicial R3) 29) 
     (= (dia-final R3) 30) 
 
-    (= (num-reservas-asig) 0)
-    (= (places-assignades) 0)
+    (= (reservas-no-asig) 0)
+    (= (plazas-no-asig) 0)
   )
   (:goal
     (forall
       (?r - reserva) 
       (or
         (reserva-asignada ?r)
-        (not 
-          (exists 
-            (?h - habitacion)
-            (and
-              (>= (num-personas-hab ?h) (num-personas-res ?r))
-              (forall (?d - dia) 
-                (or
-                  (not (dia-ocupado ?d ?h))
-                  (or 
-                    (< (que-dia ?d) (dia-inicial ?r)) 
-                    (< (dia-final ?r) (que-dia ?d))
-                  )
-                )
-              )
-            )
-          )
-        )
+        (reserva-no-asignada ?r)
       )
     )
   )
-  (:metric maximize 
-    (places-assignades)
-  )
+  (:metric minimize (plazas-no-asig))
 )
