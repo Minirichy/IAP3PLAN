@@ -1,9 +1,7 @@
 (define (domain reservas)
-  (:requirements :typing :fluents)
+  (:requirements :strips :typing :adl :equality :fluents)
   (:types
-    dia
-    reserva
-    habitacion
+    dia reserva habitacion - object
   )
   (:functions
     (que-dia ?d - dia)
@@ -11,11 +9,15 @@
     
     (dia-inicial ?r - reserva)
     (dia-final ?r - reserva)
-    (num-personas-res ?r - reserva)  
+    (num-personas-res ?r - reserva)
+    
+    (reservas-no-asig)
+    (plazas-no-asig)
   )
   (:predicates
     (dia-ocupado ?d - dia ?h - habitacion)
     (reserva-asignada ?r - reserva)
+    (reserva-no-asignada ?r - reserva)
   )
   (:action assign-hab
     :parameters (?h - habitacion ?r - reserva)
@@ -32,6 +34,7 @@
                     )
                   )
     :effect (and
+              (increase (plazas-no-asig) (- (num-personas-hab ?h) (num-personas-res ?r)))
               (reserva-asignada ?r)
               (forall (?d - dia)
                 (when
@@ -43,7 +46,14 @@
                 )
               )
             )
-
-
+  )
+  (:action no-assignar-res
+      :parameters (?r - reserva)
+      :precondition (not (reserva-asignada ?r))
+      :effect (and 
+        (increase (reservas-no-asig) 1)
+        (increase (plazas-no-asig) (num-personas-res ?r))
+        (reserva-no-asignada ?r)  
+      )
   )
 )

@@ -38,17 +38,23 @@
     (= (que-dia D30) 30)
 
     (= (num-personas-hab H1) 3)
-    (= (num-personas-res R1) 3)
+    (= (num-personas-res R1) 1)
     (= (num-personas-res R2) 3)
-    (= (num-personas-res R3) 3)
+    (= (num-personas-res R3) 1)
     (= (dia-inicial R1) 1) 
     (= (dia-final R1) 15) 
     (= (dia-inicial R2) 16) 
     (= (dia-final R2) 29) 
     (= (dia-inicial R3) 30) 
     (= (dia-final R3) 30) 
+
+    (= (reservas-no-asig) 0)
+    (= (plazas-no-asig) 0)
   )
   (:goal
-    (forall (?r - reserva) (reserva-asignada ?r))
+    (forall
+      (?r - reserva)   
+      (reserva-asignada ?r)
+    )
   )
 )
