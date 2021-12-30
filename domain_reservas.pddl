@@ -23,6 +23,8 @@
     :parameters (?h - habitacion ?r - reserva)
     :precondition (and
                     (>= (num-personas-hab ?h) (num-personas-res ?r)) 
+                    (not (reserva-asignada ?r))
+                    (not (reserva-no-asignada ?r))
                     (forall (?d - dia) 
                       (or
                         (not (dia-ocupado ?d ?h))
@@ -49,10 +51,9 @@
   )
   (:action no-assignar-res
       :parameters (?r - reserva)
-      :precondition (not (reserva-asignada ?r))
+      :precondition (and (not (reserva-asignada ?r)) (not (reserva-no-asignada ?r)))
       :effect (and 
         (increase (reservas-no-asig) 1)
-        (increase (plazas-no-asig) (num-personas-res ?r))
         (reserva-no-asignada ?r)  
       )
   )

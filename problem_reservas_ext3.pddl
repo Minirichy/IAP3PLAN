@@ -60,5 +60,5 @@
       )
     )
   )
-  (:metric minimize (plazas-no-asig))
+  (:metric minimize (+ (* 1 (plazas-no-asig)) (* 3 (reservas-no-asig)))
 )
