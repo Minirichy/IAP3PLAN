@@ -3,9 +3,12 @@
 
 using namespace std;
 
+const char orientacions[] = {'N', 'S', 'E', 'O'};
+
 struct habitacion {
     int id;
     int per;
+    char orien;
 };
 
 struct peticion {
@@ -13,6 +16,7 @@ struct peticion {
     int per;
     int fechaIni;
     int fechaFin;
+    char orien;
 };
 
 int main(){
@@ -31,6 +35,8 @@ int main(){
         for(int i = 1; i <= habsl; ++i){
             habs[i-1].id = i;
             habs[i-1].per = 1 + rand() % 4;
+            habs[i-1].orien = orientacions[rand() % 4];
+            cout << habs[i-1].orien << endl;
         }
 
         for(int i = 1; i <= petsl; ++i){
@@ -38,6 +44,7 @@ int main(){
             pets[i-1].per = 1 + rand() % 4;
             pets[i-1].fechaIni = 1 + rand() % 30;
             pets[i-1].fechaFin = pets[i-1].fechaIni + rand() % (30 + 1 - pets[i-1].fechaIni);
+            pets[i-1].orien = orientacions[rand() % 4];
         }
 
         cout << "Codigo en PDDL: " << endl;
