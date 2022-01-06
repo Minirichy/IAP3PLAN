@@ -81,8 +81,6 @@ int main(){
             cout << "    (= ( dia-final R" << pets[i].id << ") " << pets[i].fechaFin << ")" << endl;
         }
         cout << endl;
-        cout << "    (= (reservas-no-asig) 0)" << endl;
-        cout << "    (= (plazas-no-asig) 0)" << endl;
         cout << "  )" << endl;
 
         cout << "Pulse cualquier tecla para generar otra vez, escribe ";
