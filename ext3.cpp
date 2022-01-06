@@ -16,7 +16,7 @@ struct peticion {
 };
 
 int main(){
-    srand(time(NULL));
+    srand(time(0));
     string s; 
     cout << "Pulse cualquier tecla para generar habitaciones ";
     cout << "y peticiones aleatorias:" << endl;
