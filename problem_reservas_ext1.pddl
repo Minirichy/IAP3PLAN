@@ -2,8 +2,8 @@
   (:domain reservas)
   (:objects
     D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19 D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D30 - dia
-    H1 - habitacion
-    R1 R2 R3 - reserva
+    H1 H2 H3 - habitacion
+    R1 R2 R3 R4 R5 R6 R7 - reserva
   )
   (:init
     (= (que-dia D1) 1)
@@ -37,16 +37,30 @@
     (= (que-dia D29) 29)
     (= (que-dia D30) 30)
 
-    (= (num-personas-hab H1) 3)
-    (= (num-personas-res R1) 1)
-    (= (num-personas-res R2) 3)
-    (= (num-personas-res R3) 1)
-    (= (dia-inicial R1) 1) 
-    (= (dia-final R1) 15) 
-    (= (dia-inicial R2) 16) 
-    (= (dia-final R2) 29) 
-    (= (dia-inicial R3) 29) 
-    (= (dia-final R3) 30) 
+    (= ( num-personas-hab H1) 4)
+    (= ( num-personas-hab H2) 4)
+    (= ( num-personas-hab H3) 4)
+    (= ( num-personas-res R1) 1)
+    (= ( num-personas-res R2) 1)
+    (= ( num-personas-res R3) 4)
+    (= ( num-personas-res R4) 3)
+    (= ( num-personas-res R5) 1)
+    (= ( num-personas-res R6) 4)
+    (= ( num-personas-res R7) 1)
+    (= ( dia-inicial R1) 11)
+    (= ( dia-final R1) 21)
+    (= ( dia-inicial R2) 5)
+    (= ( dia-final R2) 28)
+    (= ( dia-inicial R3) 20)
+    (= ( dia-final R3) 21)
+    (= ( dia-inicial R4) 18)
+    (= ( dia-final R4) 29)
+    (= ( dia-inicial R5) 17)
+    (= ( dia-final R5) 19)
+    (= ( dia-inicial R6) 8)
+    (= ( dia-final R6) 13)
+    (= ( dia-inicial R7) 15)
+    (= ( dia-final R7) 19)
 
     (= (reservas-no-asig) 0)
     (= (plazas-no-asig) 0)

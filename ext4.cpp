@@ -23,9 +23,9 @@ int main(){
     cin >> s;
     while(s != "acaba"){
 
-        int habsl = 2 + rand() % (8 - 2);
+        int habsl = 8 /*+ rand() % (8 - 3)*/;
         struct habitacion habs[habsl];
-        int petsl = 7 + rand() % (15 - 7);
+        int petsl = 16 /*+ rand() % (15 - 7)*/;
         struct peticion pets[petsl];
 
         for(int i = 1; i <= habsl; ++i){
@@ -42,8 +42,8 @@ int main(){
 
         cout << "Codigo en PDDL: " << endl;
 
-        cout << "(define (problem asignar-reservas-ext1)" << endl;
-        cout << "  (:domain reservas-ext1)" << endl;
+        cout << "(define (problem asignar-reservas-ext4)" << endl;
+        cout << "  (:domain reservas)" << endl;
 
         cout << "  (:objects" << endl;
         cout << "    ";
@@ -71,17 +71,19 @@ int main(){
         }
         cout << endl;
         for(int i = 0; i < habsl; ++i) {
-            cout << "    (= ( num-persones-hab H" << habs[i].id << ") " << habs[i].per << ")" << endl;
+            cout << "    (= ( num-personas-hab H" << habs[i].id << ") " << habs[i].per << ")" << endl;
         }
         for(int i = 0; i < petsl; ++i) {
-            cout << "    (= ( num-persones-res R" << pets[i].id << ") " << pets[i].per << ")" << endl;
+            cout << "    (= ( num-personas-res R" << pets[i].id << ") " << pets[i].per << ")" << endl;
         }
         for(int i = 0; i < petsl; ++i) {
             cout << "    (= ( dia-inicial R" << pets[i].id << ") " << pets[i].fechaIni << ")" << endl;
             cout << "    (= ( dia-final R" << pets[i].id << ") " << pets[i].fechaFin << ")" << endl;
         }
         cout << endl;
-        cout << "    (= (num-reservas-asig) 0)" << endl;
+        cout << "    (= (reservas-no-asig) 0)" << endl;
+        cout << "    (= (plazas-no-asig) 0)" << endl;
+        cout << "    (= (habitaciones-abiertas) 0)" << endl;
         cout << "  )" << endl;
 
         cout << "Pulse cualquier tecla para generar otra vez, escribe ";
