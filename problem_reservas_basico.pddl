@@ -47,9 +47,6 @@
     (= (dia-final R2) 29) 
     (= (dia-inicial R3) 30) 
     (= (dia-final R3) 30) 
-
-    (= (reservas-no-asig) 0)
-    (= (plazas-no-asig) 0)
   )
   (:goal
     (forall

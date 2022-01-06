@@ -1,4 +1,4 @@
-(define (domain reservas)
+(define (domain reservas-ext3)
   (:requirements :strips :typing :adl :equality :fluents)
   (:types
     dia reserva habitacion - object
